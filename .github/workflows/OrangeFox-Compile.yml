@@ -20,7 +20,7 @@ on:
       DEVICE_TREE:
         description: 'OrangeFox Device Tree'
         required: true
-        default: 'https://github.com/delvoryx/device_PQ83A01'
+        default: 'https://github.com/delvoryx/device_nubia_nx721j'
       DEVICE_TREE_BRANCH:
         description: 'OrangeFox Device Tree Branch'
         required: true
@@ -95,7 +95,7 @@ jobs:
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
-        lunch fox_${{ inputs.DEVICE_NAME }}-eng && make clean && mka adbd ${{ inputs.BUILD_TARGET }}image
+        lunch twrp_${{ inputs.DEVICE_NAME }}-eng && make clean && mka adbd ${{ inputs.BUILD_TARGET }}image
 
     - name: Set Release Properties
       run: |
